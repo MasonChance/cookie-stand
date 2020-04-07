@@ -1,5 +1,5 @@
 'use strict';
-
+console.log('hello, I work');
 // seperate each object with  ` ==== Object Name ======= ` 
 /* 
 1. Outline All major steps
@@ -59,14 +59,37 @@
 
 
 var seattleStore = {
-  minGuestCount : '23',
-  maxGuestCount : '65',
-  avgCookiesGuest : '6.3',
+  minGuestCount : 23,
+  maxGuestCount : 65,
+  avgCookiesGuest : 6.3,
  
   hoursOpen : ['6am: ','7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '],  // function to push time-datatypes into each index based on Open-time && Close-time???? ask about this option for later. for now, manual entry as strings will do. 
+  dailyGuestCount : function(minGuestCount, maxGuestCount){
+    return Math.random() * (this.maxGuestCount-this.minGuestCount) + this.minGuestCount;
+  },
+  
   rNguestCount : [],
+  
   expectedCookies : [],
 
-  
+};
 
+
+console.log('dailyGuestCount: ' + seattleStore.dailyGuestCount(this.minGuestCount,this.maxGuestCount));
+
+//expected output array with 13 indicies containing random values
+
+ 
+function updateCount(rNguestCountLength){
+  
+  for(var dailyIndex = 0; seattleStore.rNguestCount.length < seattleStore.hoursOpen.length; dailyIndex ++){
+    var updateCount = seattleStore.dailyGuestCount;
+    return  seattleStore.rNguestCount.push(updateCount[dailyIndex]);
+  }
 }
+updateCount(seattleStore.rNguestCount.length);
+
+console.log('rNguestCount: ' + seattleStore.rNguestCount.length);
+console.log('rNgCount[]: ' + seattleStore.rNguestCount);
+
+   
