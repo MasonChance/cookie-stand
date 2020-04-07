@@ -21,15 +21,15 @@
 
 /*
 1. Object Raw/Fixed Data
-    i. locationName
-    ii. locationHrsOpen[]
-    iii. minimum Customers/hr
-    iv. maximum Customers/hr
-    v. avgCookies/Customer
+    i. locationName for now, this is also the name of the object, may later be converted as a property and this object name changed to Store with location as seperate property as well. 
+    ii. locationHrsOpen[array] [x]
+    iii. minimum Customers/hr [x]
+    iv. maximum Customers/hr[x]
+    v. avgCookies/Customer [x]
 
-    i1. simulated customers/hr for locationHrsOpen.length.[] using
-        objects/math/random number generator. 
-    i2. simulated cookies per hour for avCookies/cust * (customers
+    i1. simulated customers/hr for locationHrsOpen.length.[Array of guestCounts] [x]
+         
+    i2. simulated cookies per hour for avgCookies/cust * (customers
         per locationHrsOpen.length)[]
     i3. 
 
@@ -56,10 +56,17 @@
 
 */
 
+
+
 var seattleStore = {
   minGuestCount : '23',
   maxGuestCount : '65',
   avgCookiesGuest : '6.3',
-  hoursOpen : [],  // function to push time-datatypes into each index based on Open-time && Close-time????
+ 
+  hoursOpen : ['6am: ','7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '],  // function to push time-datatypes into each index based on Open-time && Close-time???? ask about this option for later. for now, manual entry as strings will do. 
+  rNguestCount : [],
+  expectedCookies : [],
+
+  
 
 }
