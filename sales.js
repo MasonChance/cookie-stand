@@ -125,6 +125,8 @@ seattleStore.DailyTotal = function(){
 
 //Display Store Name in <h3>element 
 // give DOM a target ID
+var locationEl = document.getElementById("locationName");
+console.log(locationEl);
 // create Content (textcontent)
 // add content to page. 
 //
