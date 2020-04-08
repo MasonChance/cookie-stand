@@ -20,32 +20,6 @@ console.log('hello, I work');
 //=================Global Scope (structure and tasks)================
 
 /*
-1. Object Raw/Fixed Data
-    i. locationName for now, this is also the name of the object, may later be converted as a property and this object name changed to Store with location as seperate property as well. 
-    ii. locationHrsOpen[array] [x]
-    iii. minimum Customers/hr [x]
-    iv. maximum Customers/hr[x]
-    v. avgCookies/Customer [x]
-
-    i1. simulated customers/hr for locationHrsOpen.length.[Array of guestCounts] [x]
-         
-    i2. simulated cookies per hour for avgCookies/cust * (customers
-        per locationHrsOpen.length)[]
-    i3. 
-
-2. Object Methods
-    i. methods for generating Dynamic data
-      a.simulate customers/hr
-        i1. method uses random math browser based method.
-        i2. pulls properties location.minimumCust location.maxCust and location.hours.lenth.
-        i3. passes minCust && maxCust into randGen 
-        i4. loops step (i3) for each hrOpen.lenth.
-        i5. push values generated to objectProperty: randCust/hr as array
-      b. simulated cookies per hour using simulated customers/hr
-        i1.pulls aveCooke/customer @ locationObject.cookies/customer
-        i2.pulls hoursOpen @locationObject.hourOpen.length
-        i3.pulls simCust/hr @locationObject.Cust/hr
-        i4.evaluates  cust/hr*cooke/cust for ea. hrOpen
     ii. Display Results to Sales.html
         a. display: location Name
         b. display: ea hour open 
@@ -55,7 +29,6 @@ console.log('hello, I work');
 
 
 */
-// 
 
 //==========SeatleStore Object ==============
 var seattleStore = {
@@ -123,14 +96,38 @@ seattleStore.DailyTotal = function(){
  
 // =========== Print To Sales.Html page display data =======
 
-//Display Store Name in <h3>element 
-// give DOM a target ID
-var locationEl = document.getElementById("locationName");
-console.log(locationEl);
-// create Content (textcontent)
-// add content to page. 
-//
+// //Display Store Name in <h3>element 
+// seattleStore.renderToPage = function(){
+//   // give DOM a target ID
+//   var newEl = document.getElementById('locationName');
+//   var newTextCont = newEl.createTextNode(seattleStore.locationName);
+//   newEl.appendChild(newTextCont);
 
+  
+// };
+// seattleStore.renderToPage();
+// console.log(newEl);
+// console.log(newText);
+// console.log(newTextCont);
+// // create Content (textcontent)
+// // add content to page. 
+// //
+
+
+//============ Try as first Item appended to list====
+seattleStore.renderToPage = function(){
+//get target
+var targetSeatEl = document.getElementById('storeName');
+//create content
+var seatElNewLi = document.createElement('li');
+var seatContName = seattleStore.locationName;
+seatElNewLi.textContent = seatContName;
+console.log('seatElNewLi: ' + seatElNewLi);
+// append to target
+
+targetSeatEl.appendChild(seatElNewLi);
+}
+seattleStore.renderToPage();
 
 
 
