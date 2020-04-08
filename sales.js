@@ -19,17 +19,6 @@ console.log('hello, I work');
 
 //=================Global Scope (structure and tasks)================
 
-/*
-    ii. Display Results to Sales.html
-        a. display: location Name
-        b. display: ea hour open 
-        c. display: generated TotalCookies for Each HrOpen
-        d. display: total cookies for day. 
-
-
-
-*/
-
 //==========SeatleStore Object ==============
 var seattleStore = {
   locationName : 'Seattle',
@@ -37,7 +26,7 @@ var seattleStore = {
   maxGuestCount : 65,
   avgCookiesGuest : 6.3,
   
-  hoursOpen : ['6am: ','7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '],  // function to push time-datatypes into each index based on Open-time && Close-time???? ask about this option for later. for now, manual entry as strings will do. 
+  hoursOpen : [600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900],  // function to push time-datatypes into each index based on Open-time && Close-time???? ask about this option for later. for now, manual entry as strings will do. 
   guestPerHour : [],
 
   expectedCookies : [],
@@ -61,8 +50,6 @@ seattleStore.perHourCount = function(){
     
      return this.guestPerHour 
 }
-
-
 // ======= Cookies Per Hour assigned variables========
 
 // gets number of cookies * number of guests for each hour
@@ -73,13 +60,9 @@ seattleStore.cookieHour = function(){
     var guestOrder = this.avgCookiesGuest * cookieOrder[cookieCount];
     this.expectedCookies.push(Math.round(guestOrder));
   
-  }
-  
-  return this.expectedCookies;
-  
+  }  
+  return this.expectedCookies;  
 }
-
-
 // ======= total daily cookies ============
 
 seattleStore.DailyTotal = function(){
@@ -90,44 +73,57 @@ seattleStore.DailyTotal = function(){
     hourTotal = hourTotal + orders[orderIndex];
   }
   return hourTotal;
-}
-  
- 
- 
+} 
 // =========== Print To Sales.Html page display data =======
 
-// //Display Store Name in <h3>element 
-// seattleStore.renderToPage = function(){
-//   // give DOM a target ID
-//   var newEl = document.getElementById('locationName');
-//   var newTextCont = newEl.createTextNode(seattleStore.locationName);
-//   newEl.appendChild(newTextCont);
-
-  
-// };
-// seattleStore.renderToPage();
-// console.log(newEl);
-// console.log(newText);
-// console.log(newTextCont);
-// // create Content (textcontent)
-// // add content to page. 
-// //
-
-
-//============ Try as first Item appended to list====
 seattleStore.renderToPage = function(){
-//get target
-var targetSeatEl = document.getElementById('storeName');
-//create content
-var seatElNewLi = document.createElement('li');
-var seatContName = seattleStore.locationName;
-seatElNewLi.textContent = seatContName;
-console.log('seatElNewLi: ' + seatElNewLi);
-// append to target
+  //Display Store Name in <h3>element 
+  // give DOM a target ID
+  var newStoreEl = document.getElementById('locationName');
+  //create the content
+  console.log(newStoreEl);
+  var newText = this.locationName;
+  console.log(newText);
+  //append to page
+  newStoreEl.textContent = newText;
+  console.log(newStoreEl);
 
-targetSeatEl.appendChild(seatElNewLi);
-}
+  //Display hours open for each hour
+  // give DOM a target
+
+  for(var i = 0; i < this.hoursOpen.length; i++){
+    var newTrackerEl = document.getElementById('hours-open');
+    var newHourEl = document.createElement('li');
+    var HrNewContent = this.hoursOpen[i]; 
+    newHourEl.textContent = HrNewContent;
+    newTrackerEl.appendChild(newHourEl)
+  }
+  
+  //Display cookies per Hour
+  
+  // give DOM Target
+  for( i = 0; i < this.hoursOpen.length; i++){
+    var newCookieEl = document.getElementById('cookie-per-hour');
+  // create Content
+  // // list Item
+  var newContentEl = document.createElement('li');
+  // // cookies for that hour
+  var getCookieArray = this.cookieHour();
+  var cookieTextContent = getCookieArray[i];
+  newContentEl.textContent = cookieTextContent;
+  // append to target
+  newCookieEl.appendChild(newContentEl)
+  }
+
+  console.log('newCookieEl: ' + newCookieEl);
+  console.log('newContentEl: ' + newContentEl);
+  console.log('cookieTextContent: ' + cookieTextContent);
+
+};
 seattleStore.renderToPage();
+
+
+
 
 
 
