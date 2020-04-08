@@ -55,54 +55,64 @@ console.log('hello, I work');
 
 
 */
+// 
 
-
-
+//==========SeatleStore Object ==============
 var seattleStore = {
   minGuestCount : 23,
   maxGuestCount : 65,
   avgCookiesGuest : 6.3,
   
   hoursOpen : ['6am: ','7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: '],  // function to push time-datatypes into each index based on Open-time && Close-time???? ask about this option for later. for now, manual entry as strings will do. 
-
   guestPerHour : [],
-  dailyGuestCount : function(minGuestCount, maxGuestCount){
-    return Math.random() * (this.maxGuestCount-this.minGuestCount) + this.minGuestCount;
-  },
 
-  rNguestCount : function(guestPerHourLength){
-    var arrayLength = 0;
-
-    do{
-     this.guestPerHour.push(this.dailyGuestCount[arrayLength]);
-     arrayLength ++
-    } while (this.guestPerHour.length < this.hoursOpen.length);
-       
-  },
-    
-  
-  
   expectedCookies : [],
-
+  
 };
 
-seattleStore.dailyGuestCount(seattleStore.minGuestCount, seattleStore.maxGuestCount);
-seattleStore.rNguestCount(seattleStore.guestPerHour.length);
-console.log('dailyGuestCount: ' + seattleStore.dailyGuestCount(this.minGuestCount,this.maxGuestCount));
+// ========== Seattle Store Methods  and assigned variables. ================
 
-//expected output array with 13 indicies containing random values
+// Generates a random number of guests for each hourOpen
+seattleStore.randNumGen = function(){
+  return Math.floor(Math.random() * (this.maxGuestCount-this.minGuestCount) + this.minGuestCount);
+}
 
- 
-function updateCount(rNguestCountLength){
-  // what if I use a do-while{}instead. I need dailyGuestCount to be run and updated at least once and I only need it updated for a very specific but dynamic conditon>>>>>
-  for(var dailyIndex = 0; seattleStore.rNguestCount.length < seattleStore.hoursOpen.length; dailyIndex ++){
-    var updateCount = seattleStore.dailyGuestCount;
-    return  seattleStore.rNguestCount.push(updateCount[dailyIndex]);
-  }
+// gets number of guests per hour for each hourOpen
+seattleStore.perHourCount = function(){
+  for(var guestCounts = 0; guestCounts < this.hoursOpen.length; guestCounts ++){
+    var rNg = seattleStore.randNumGen();
+    this.guestPerHour.push(rNg);
+    
+  }  
+     return this.guestPerHour 
 }
 
 
-// even though this variable uses the  ` this ` keyword, since it is called into the object scope as a propertyValue, the keyword now has context to operate on. 
-console.log('guestPerHour:' + seattleStore.guestPerHour);
+// ======= Cookies Per Hour assigned variables========
+
+// gets number of cookies * number of guests for each hour
+seattleStore.cookieHour = function(){
+  var cookieOrder = seattleStore.perHourCount();
+
+  for(var cookieCount = 0; cookieCount < this.guestPerHour.length; cookieCount ++){
+    var guestOrder = this.avgCookiesGuest * cookieOrder[cookieCount];
+    this.expectedCookies.push(Math.round(guestOrder));
+  
+  }
+  
+  return this.expectedCookies;
+  
+}
+seattleStore.cookieHour();
+
+// =========== Print To Sales.Html page display data =======
+
+
+
+
+
+
+
+
 
    
