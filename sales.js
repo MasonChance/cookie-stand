@@ -59,6 +59,7 @@ console.log('hello, I work');
 
 //==========SeatleStore Object ==============
 var seattleStore = {
+  locationName : 'Seattle',
   minGuestCount : 23,
   maxGuestCount : 65,
   avgCookiesGuest : 6.3,
@@ -84,6 +85,7 @@ seattleStore.perHourCount = function(){
     this.guestPerHour.push(rNg);
     
   }  
+    
      return this.guestPerHour 
 }
 
@@ -103,12 +105,29 @@ seattleStore.cookieHour = function(){
   return this.expectedCookies;
   
 }
-seattleStore.cookieHour();
 
+
+// ======= total daily cookies ============
+
+seattleStore.DailyTotal = function(){
+  var orders = this.cookieHour();
+  var hourTotal = 0;
+ 
+  for(var orderIndex = 0; orderIndex < orders.length; orderIndex ++){
+    hourTotal = hourTotal + orders[orderIndex];
+  }
+  return hourTotal;
+}
+  
+ 
+ 
 // =========== Print To Sales.Html page display data =======
 
-
-
+//Display Store Name in <h3>element 
+// give DOM a target ID
+// create Content (textcontent)
+// add content to page. 
+//
 
 
 
