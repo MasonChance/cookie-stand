@@ -2,7 +2,6 @@
 console.log('hello, I work');
 
 /* EXTRACT THE LITERALS INTO CONSTRUCTORS
-TODO: create Constructor with parameters
 TODO: create the methods using prototype
         1. remember this
         2. remember that some functions rely on others and be sure to call them with (); before doing anything else with the method. 
@@ -14,11 +13,7 @@ TODO: wireframe the table and what information will go in which table location b
 TODO: scafold the main elements of the table in HTML.
 TODO:  create new function for generating hours open array based on open time and close time. Stretch goal. for now just get it working
 
-
-
 */
-
-// declare parameters
 function Store(locationName, minGuestCount, maxGuestCount, avgCookiesGuest){
   // creates new store
   this.locationName = locationName;
@@ -26,9 +21,9 @@ function Store(locationName, minGuestCount, maxGuestCount, avgCookiesGuest){
   this.minGuestCount = minGuestCount;
   this.maxGuestCount = maxGuestCount;
   this.avgCookiesGuest = avgCookiesGuest;
-  this.guestPerHour = [];
-  this.expectedCookies = [];
-  this.cookiesPerHour = [];
+  this.guestPerHour = this.perHourCount();
+  this.cookiesPerHour = this.ordersPerHour();
+  this.expectedCookies = this.dailyTotal();
 
 }
 
@@ -43,50 +38,43 @@ Store.prototype.randomNumGen = function(){
 };
 
 Store.prototype.perHourCount = function(){
-  //gets number of guest per hour for each hour open
+  var guestThisHour = [];
   for(var guestCounts = 0; guestCounts < this.hoursOpen.length; guestCounts ++){
     var rNg = this.randomNumGen();
-    this.guestPerHour.push(rNg);    
+    guestThisHour.push(rNg);    
   }      
-     return this.guestPerHour
-  // see Sales.js:22-29
+     return guestThisHour;
 };
 
 Store.prototype.ordersPerHour = function(){
-  var cookieOrder = this.perHourCount();
+  var cookieOrder = [];
   for(var cookieCount = 0; cookieCount < this.guestPerHour.length; cookieCount ++){
-    var guestOrder = this.avgCookiesGuest * cookieOrder[cookieCount];
-    this.expectedCookies.push(Math.floor(guestOrder));
+    var guestOrder = this.avgCookiesGuest * this.guestPerHour[cookieCount];
+    cookieOrder.push(Math.floor(guestOrder));  
+  }    
+  return cookieOrder; 
   
-  }  
-  return this.expectedCookies; 
-  // see lines 32-41 in sales.js
 };
 
 Store.prototype.dailyTotal = function(){
-  var orders = this.ordersPerHour();
+  var orders = this.cookiesPerHour;
   var hourTotal = 0; 
   for(var orderIndex = 0; orderIndex < orders.length; orderIndex ++){
     hourTotal = hourTotal + orders[orderIndex];
   }
   return hourTotal; 
-  // see lines 43-50 in sales.js
+  
 };
 
-// Store.prototype.renderToPage = function(){
-//   // renders previously generated data to table.
-//   // remember to call previous functions before coding any other action
-//   // remember to scaffold table in HTML with appropriate ID's 
-//   // where possible use the document methods to create elements and element attributes before outputting to page
-// };
+Store.prototype.renderToPage = function(){
+  // renders previously generated data to table.
+  // remember to call previous functions before coding any other action
+  // remember to scaffold table in HTML with appropriate ID's 
+  // where possible use the document methods to create elements and element attributes before outputting to page
+};
 
 var seattle = new Store('Seattle', 23, 65,6.3);
+var tokyo = new Store('Tokyo', 21, 80, 13);
 
 
-console.log('seattle: ' + seattle);
 
-console.log('randomNumGen: ' + seattle.randomNumGen());
-console.log('perHourCount: ', seattle.perHourCount());
-console.log('cOrdersPerHour: ',  seattle.ordersPerHour());
-console.log('expected Cookies: ', seattle.expectedCookies)
-console.log('dailyTotal: ', + seattle.dailyTotal());
