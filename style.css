@@ -1,0 +1,26 @@
+
+* {
+  outline: dotted red;
+box-sizing: border-box;
+overflow: hidden;
+}
+
+main {
+  margin-top: 40px;
+  margin-right: 60px;
+  
+}
+section {
+  
+  margin-right: 30px;
+  float: left;
+  
+}
+section h3 {
+  width: 100%;
+}
+
+
+
+
+
