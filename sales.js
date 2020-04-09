@@ -31,7 +31,6 @@ seattleStore.perHourCount = function(){
 // gets number of cookies * number of guests for each hour
 seattleStore.cookieHour = function(){
   var cookieOrder = seattleStore.perHourCount();
-
   for(var cookieCount = 0; cookieCount < this.guestPerHour.length; cookieCount ++){
     var guestOrder = this.avgCookiesGuest * cookieOrder[cookieCount];
     this.expectedCookies.push(Math.round(guestOrder));
@@ -42,8 +41,7 @@ seattleStore.cookieHour = function(){
 // ======= total daily cookies ============
 seattleStore.DailyTotal = function(){
   var orders = this.cookieHour();
-  var hourTotal = 0;
- 
+  var hourTotal = 0; 
   for(var orderIndex = 0; orderIndex < orders.length; orderIndex ++){
     hourTotal = hourTotal + orders[orderIndex];
   }
