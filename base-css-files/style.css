@@ -3,13 +3,23 @@
   outline: dotted red;
 box-sizing: border-box;
 overflow: hidden;
+border-collapse: collapse;
 }
 
 main {
   margin-top: 40px;
-  margin-right: 60px;
+  margin-right: auto;
+  margin-left: auto;
   
 }
+
+nav{
+  position: relative;
+  background: image(#);
+  list-style: none;
+
+}
+
 section {
   
   margin-right: 30px;
