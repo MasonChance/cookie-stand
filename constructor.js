@@ -8,9 +8,6 @@ TODO: create the methods using prototype
         3. be cognizant of which data is dynamic. 
 TODO: create stand alone function  to create table header give it a class and an id for styling
 TODO: create stand alone function to create table footergive it a class and an id for styling
-
-TODO: wireframe the table and what information will go in which table location before getting started with the rendering functions
-TODO: scafold the main elements of the table in HTML.
 TODO:  create new function for generating hours open array based on open time and close time. Stretch goal. for now just get it working
 
 */
@@ -66,48 +63,48 @@ Store.prototype.dailyTotal = function(){
   
 };
 
-Store.prototype.renderToPage = function(){
-  //Target Table id 'overview'
-  var tRowTargetEl = document.getElementById('overview');
-    // Create <tr> then give it an ID = this.locationName
-  var newRowEl = document.createElement('tr');
-  newRowEl.id = this.locationName;
-  // Append to <table#overview> 
-  tRowTargetEl.appendChild(newRowEl);
-  //Target <tr#this.locationName>
-  var tHeaderTargetEl = document.getElementById(this.locationName);
-  //Create <th> (no # needed)
-  var newThEl = document.createElement('th');
-  //create content: location name is first cell. 
-  var newThContent = this.locationName;
-  newThEl.textContent = newThContent;
-  tHeaderTargetEl.appendChild(newThEl);
-    // next peice gets for(){}. this.hoursOpen.length
+// Store.prototype.renderToPage = function(){
+//   //Target Table id 'overview'
+//   var tRowTargetEl = document.getElementById('overview');
+//     // Create <tr> then give it an ID = this.locationName
+//   var newRowEl = document.createElement('tr');
+//   newRowEl.id = this.locationName;
+//   // Append to <table#overview> 
+//   tRowTargetEl.appendChild(newRowEl);
+//   //Target <tr#this.locationName>
+//   var tHeaderTargetEl = document.getElementById(this.locationName);
+//   //Create <th> (no # needed)
+//   var newThEl = document.createElement('th');
+//   //create content: location name is first cell. 
+//   var newThContent = this.locationName;
+//   newThEl.textContent = newThContent;
+//   tHeaderTargetEl.appendChild(newThEl);
+//     // next peice gets for(){}. this.hoursOpen.length
     
-    // for(var i = 0; i < this.hoursOpen.length; i++){
-    //   var tDataTargetEl = document.getElementById(this.locationName);
-    // // target <tr#this.locationName>
-    // // Create Content
-    // // new <td>
-    // var newTdEl = document.createElement('td');
-    // // newContent this.cookiesPerHour[i]
-    // var newTdContent = this.cookiesPerHour[i];
-    // // assign new content<td.textContent>
-    // newTdEl.textContent = newTdContent;
-    // //append to target tr#this.locationName.
-    // tDataTargetEl.appendChild(newTdEl);
-  // }
+//     // for(var i = 0; i < this.hoursOpen.length; i++){
+//     //   var tDataTargetEl = document.getElementById(this.locationName);
+//     // // target <tr#this.locationName>
+//     // // Create Content
+//     // // new <td>
+//     // var newTdEl = document.createElement('td');
+//     // // newContent this.cookiesPerHour[i]
+//     // var newTdContent = this.cookiesPerHour[i];
+//     // // assign new content<td.textContent>
+//     // newTdEl.textContent = newTdContent;
+//     // //append to target tr#this.locationName.
+//     // tDataTargetEl.appendChild(newTdEl);
+//   // }
 
   
-  console.log('newThContent : ' + newThContent);
-  console.log('newThEl.textContent: ' + newThEl.textContent);
-  console.log('newRowElId: ' + newRowEl.id);
-};
+//   console.log('newThContent : ' + newThContent);
+//   console.log('newThEl.textContent: ' + newThEl.textContent);
+//   console.log('newRowElId: ' + newRowEl.id);
+// };
 
 
-var seattle = new Store('Seattle', 23, 65,6.3);
+// var seattle = new Store('Seattle', 23, 65,6.3);
 
-seattle.renderToPage();
+// seattle.renderToPage();
 //========== consolelogs for Rendertopage =====
 
 
