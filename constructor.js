@@ -67,14 +67,32 @@ Store.prototype.dailyTotal = function(){
 };
 
 Store.prototype.renderToPage = function(){
-  // renders previously generated data to table.
-  // remember to call previous functions before coding any other action
-  // remember to scaffold table in HTML with appropriate ID's 
-  // where possible use the document methods to create elements and element attributes before outputting to page
+  //Target Table id 'overview'
+  var tRowTargetEl = document.getElementById('overview');
+    // Create <tr> then give it an ID = this.locationName
+  var newRowEl = document.createElement('tr');
+  newRowEl.id = (this.locationName);
+  tRowTargetEl.appendChild(newRowEl);
+
+      // Append to <table#overview> 
+  //Target <tr#this.locationName>
+    //Create <td> (no # needed)
+      // 1. Target <td via <tr #>> Content pulling from this.cookiesPerHour[i]
+      // 2.Create Text content from this.cookiesPerHour[i];
+    //Append to <tr#this.locationName> 
+  // encapsulate in `for(){}`
+
+
+  
 };
+console.log('headerRowGetElId: ' + Store.tRowTargetEl);
+console.log('newRowEl: ' + newRowEl);
+console.log('newRowElId: ' + newRowEl.id);
+console.log('RendertoPage: ' + Store.renderToPage());
+
 
 var seattle = new Store('Seattle', 23, 65,6.3);
-var tokyo = new Store('Tokyo', 21, 80, 13);
 
+//========== consolelogs for Rendertopage =====
 
 
