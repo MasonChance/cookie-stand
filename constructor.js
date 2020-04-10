@@ -71,28 +71,44 @@ Store.prototype.renderToPage = function(){
   var tRowTargetEl = document.getElementById('overview');
     // Create <tr> then give it an ID = this.locationName
   var newRowEl = document.createElement('tr');
-  newRowEl.id = (this.locationName);
+  newRowEl.id = this.locationName;
+  // Append to <table#overview> 
   tRowTargetEl.appendChild(newRowEl);
-
-      // Append to <table#overview> 
   //Target <tr#this.locationName>
-    //Create <td> (no # needed)
-      // 1. Target <td via <tr #>> Content pulling from this.cookiesPerHour[i]
-      // 2.Create Text content from this.cookiesPerHour[i];
-    //Append to <tr#this.locationName> 
-  // encapsulate in `for(){}`
-
+  var tHeaderTargetEl = document.getElementById(this.locationName);
+  //Create <th> (no # needed)
+  var newThEl = document.createElement('th');
+  //create content: location name is first cell. 
+  var newThContent = this.locationName;
+  newThEl.textContent = newThContent;
+  tHeaderTargetEl.appendChild(newThEl);
+    // next peice gets for(){}. this.hoursOpen.length
+    
+    // for(var i = 0; i < this.hoursOpen.length; i++){
+    //   var tDataTargetEl = document.getElementById(this.locationName);
+    // // target <tr#this.locationName>
+    // // Create Content
+    // // new <td>
+    // var newTdEl = document.createElement('td');
+    // // newContent this.cookiesPerHour[i]
+    // var newTdContent = this.cookiesPerHour[i];
+    // // assign new content<td.textContent>
+    // newTdEl.textContent = newTdContent;
+    // //append to target tr#this.locationName.
+    // tDataTargetEl.appendChild(newTdEl);
+  // }
 
   
+  console.log('newThContent : ' + newThContent);
+  console.log('newThEl.textContent: ' + newThEl.textContent);
+  console.log('newRowElId: ' + newRowEl.id);
 };
-console.log('headerRowGetElId: ' + Store.tRowTargetEl);
-console.log('newRowEl: ' + newRowEl);
-console.log('newRowElId: ' + newRowEl.id);
-console.log('RendertoPage: ' + Store.renderToPage());
 
 
 var seattle = new Store('Seattle', 23, 65,6.3);
 
+seattle.renderToPage();
 //========== consolelogs for Rendertopage =====
+
 
 
