@@ -3,34 +3,26 @@
   outline: dotted red;
 box-sizing: border-box;
 overflow: hidden;
-border-collapse: collapse;
+
 }
 
 main {
   margin-top: 40px;
-  margin-right: auto;
-  margin-left: auto;
+  
   
 }
 
 nav{
   position: relative;
-  background: image(#);
-  list-style: none;
+
 
 }
-
-section {
-  
-  margin-right: 30px;
-  float: left;
-  
-}
-section h3 {
-  width: 100%;
+#newStore{
+  margin-top: 40px;
 }
 
-
-
-
+#overview td{
+  margin-right: 20px;
+  padding-right:10px;
+}
 
