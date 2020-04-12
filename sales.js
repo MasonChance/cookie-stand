@@ -70,7 +70,8 @@ seattleStore.renderToPage = function(){
     var getCookieArray = this.cookieHour();
     var cookieTextContent = getCookieArray[i];
     newContentEl.textContent = cookieTextContent;
-    newCookieEl.appendChild(newContentEl)
+    newCookieEl.appendChild(newContentEl);
+    
   }
 };
 

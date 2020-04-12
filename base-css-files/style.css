@@ -25,4 +25,6 @@ nav{
   margin-right: 20px;
   padding-right:10px;
 }
-
+#overview th {
+  min-width : 30px;
+}
