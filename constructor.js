@@ -3,7 +3,6 @@ console.log('hello, I work');
 
 /* EXTRACT THE LITERALS INTO CONSTRUCTORS
 
-TODO: create stand alone function  to create table header give it a class and an id for styling
 TODO: create stand alone function to create table footergive it a class and an id for styling
 
 */
@@ -23,11 +22,11 @@ function Store(locationName, minGuestCount, maxGuestCount, avgCookiesGuest){
 
 }
 
-// TODO: Store.prototype.hoursOpen = function(){
-//   // not previously coded. outputs array of the hours based on open close time. 
-//   // displays with "am" and "pm" concatonation.
-//   // `if-else(){}` to check if before noon or after noon. 
-// }
+  // TODO: Store.prototype.hoursOpen = function(){
+  //   // not previously coded. outputs array of the hours based on open close time. 
+  //   // displays with "am" and "pm" concatonation.
+  //   // `if-else(){}` to check if before noon or after noon. 
+  // }
 
 Store.prototype.randomNumGen = function(){
   return Math.floor(Math.random() * (this.maxGuestCount-this.minGuestCount) + this.minGuestCount);
@@ -39,7 +38,7 @@ Store.prototype.perHourCount = function(){
     var rNg = this.randomNumGen();
     guestThisHour.push(rNg);    
   }      
-     return guestThisHour;
+    return guestThisHour;
 };
 
 Store.prototype.ordersPerHour = function(){
@@ -62,8 +61,8 @@ Store.prototype.dailyTotal = function(){
   
 };
 
-//===== The Table Header is Independent of the Store Data Rendering Function ====//
-//FIXME:
+  //===== The Table Header is Independent of the Store Data Rendering Function ====//
+
 Store.prototype.renderStoreTableHeader = function(){
 
   if(document.getElementById('operation-hours' ) === null){
@@ -81,6 +80,10 @@ Store.prototype.renderStoreTableHeader = function(){
       hoursOpenThEl.textContent = newHrOpenContent;
       operationThElTarget.appendChild(hoursOpenThEl);
     }
+    var newHeaderTotalEl = document.createElement('th');
+    var newHeaderTotalContent = 'Total Daily Cookies';
+    newHeaderTotalEl.textContent = newHeaderTotalContent;
+    operationThElTarget.appendChild(newHeaderTotalEl);
   }
   
 };
@@ -107,26 +110,32 @@ Store.prototype.renderToPage = function(){
     var newTdContent = this.cookiesPerHour[i];
     
     newTdEl.textContent = newTdContent;
-    tDataTargetEl.appendChild(newTdEl);
-    
+    tDataTargetEl.appendChild(newTdEl);   
   }
 
-  Store.prototype.removeFinalRow = function(){
-    var clear = document.getElementById('tSummary');
-    clear.remove();
+  var newTotalEl = document.createElement('td');
+  var newTotalContent = this.expectedCookies;
+  newTotalEl.textContent = newTotalContent;
+  tDataTargetEl.appendChild(newTotalEl);
+
+};
+
+Store.prototype.removeFinalRow = function(){
+  var clear = document.getElementById('tSummary');
+  clear.remove();
+};
+
+Store.prototype.renderTableFooter = function(){
+  if(document.getElementById('tSummary') != null){
+  //Creates new row with Id 'tSummary' removing the last instance of renderTableFooter.
+    this.removeFinalRow();
+    this.writeRow();      
+  } else {
+    this.writeRow();  
   }
+};
 
-  Store.prototype.renderTableFooter = function(){
-    if(document.getElementById('tSummary') != null){
-   //Creates new row with Id 'tSummary' removing the last instance of renderTableFooter.
-      this.removeFinalRow();
-      this.writeRow();      
-    } else {
-      this.writeRow();  
-    }
-  }  
-
-  Store.prototype.writeRow = function(){
+Store.prototype.writeRow = function(){
   var tableFooterTargetEl = document.getElementById('overview');
   var newTableFooterEl  = document.createElement('tr');
   newTableFooterEl.id = 'tSummary';
@@ -137,11 +146,19 @@ Store.prototype.renderToPage = function(){
   var newThElContent = 'Hourly totals across all locations';
   newFoothEl.textContent = newThElContent;
   newFooThElTarget.appendChild(newFoothEl);
-
-
-
-  }
+    // Find Target. if table is object <tr> is array index, and <th>/<td> are arrays of row;
+    //Syntax for looping through the td/th children of a <tr>: 
+  
 };
+
+// ==== seperate functions for 
+// 1. retrieving values in each first child of tr with tag <td> 
+    //1.a. iterate and push to array, 
+    //1.b. sum array. 
+    //1.c. write return of (1.b.) to tableFooterRow[i]
+// 2. interate step above through loop = to tableHeaderRow.length. 
+
+
 
 
 
