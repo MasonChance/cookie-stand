@@ -4,46 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cookie Stand Management Portal</title>
-  <link href="style.css" type="text/css" rel="stylesheet"/>
+  <link href="base-css-files/reset.css" type="text/css" rel="stylesheet"/>
+  <link href="base-css-files/style.css" type="text/css" rel="stylesheet"/>
+  
 </head>
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html"></a></li>
+      </ul>
+    </nav>
+  </header>
+
   <main>
-    <section class="store">
-      <h3 id="seattle">potato</h3>
+    <h1>Stores Overview by Location</h1>
+    <table id="overview">
+      <!-- First Table row is the "header-line" of the table containing only <th> elements -->
+      <tr>
+        <th>potato</th>
+      </tr>
+        <!--next row contains a begining <th> element created with an Id"" by the js and is then referenced by the next portion of the render function to loop the creation of new <td> elements and render them with the data pulled from the cookies/hr property of the Store object. rinse and repeat.   -->
 
-      <article>
-        <h4>Hours of Operation</h4>
-          <ul id="seattle-hours-open">
-            
-          </ul>
-      </article>
 
-      <article>
-        <h4>Cookies/hour</h4>  
-          <ul id="seattle-cookie-per-hour">
+    </table>
 
-          </ul>
-      </article>
-      
-    </section>  
-    <section> 
-      <article>
-        <h3 id="tokyo">potato</h3>
-        <h4>Hours of Operation</h4>
-          <ul id="tokyo-hours-open">
-            
-          </ul>
-        <h4>Cookies/hour</h4>  
-          <ul id="tokyo-cookie-per-hour">
+    <form id="newStore">
+      <fieldset>
+        <legend>Add a Store to the Network</legend>
+        <!-- Enter Location Name for New Store -->
+        <label for="location">Location Name</label>
+        <input type="text" name="location"/>
 
-          </ul>        
-      </article>
-    </section>
+        <!-- Enter the minimum number of customers expected per hour -->
+        <label for="minimum">Minimum Guest Per Hour</label>
+        <input type="text" name="minimum">
+        
+        <!-- Enter maximum number of guests -->
+        <label for="maximum">Maximum Guest Per Hour</label>
+        <input type="text" name="maximum">
+        
+        <!-- Enter Average number of cookies per order -->
+        <label for="perorder">Average number of cookies per Order</label>
+        <input type="text" name="perorder">
+
+        <submit>Add Store</submit>
+        
+      </fieldset>
+    </form>
+
+    
+
+
   </main>
   
   
   
-  
-  <script src="sales.js"></script>
+  <script src="constructor.js"></script>
+  <!-- <script src="sales.js"></script> -->
 </body>
 </html>

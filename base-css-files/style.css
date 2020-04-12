@@ -1,0 +1,30 @@
+
+* {
+  outline: dotted red;
+box-sizing: border-box;
+overflow: hidden;
+
+}
+
+main {
+  margin-top: 40px;
+  
+  
+}
+
+nav{
+  position: relative;
+
+
+}
+#newStore{
+  margin-top: 40px;
+}
+
+#overview td{
+  margin-right: 20px;
+  padding-right:10px;
+}
+#overview th {
+  min-width : 30px;
+}
