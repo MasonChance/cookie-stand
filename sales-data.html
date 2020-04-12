@@ -10,26 +10,23 @@
 </head>
 <body>
   <header>
+    <h1>Salmon Cookies Cafe</h1>
     <nav>
       <ul>
-        <li><a href="index.html"></a></li>
+        <li><a href="index.html">Home</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h1>Stores Overview by Location</h1>
+    <h2>Stores Overview by Location</h2>
     <table id="overview">
-      <!-- First Table row is the "header-line" of the table containing only <th> elements -->
-      <tr>
-        <th>potato</th>
-      </tr>
-        <!--next row contains a begining <th> element created with an Id"" by the js and is then referenced by the next portion of the render function to loop the creation of new <td> elements and render them with the data pulled from the cookies/hr property of the Store object. rinse and repeat.   -->
+    
 
 
     </table>
 
-    <form id="newStore">
+    <form class="newStore">
       <fieldset>
         <legend>Add a Store to the Network</legend>
         <!-- Enter Location Name for New Store -->
@@ -45,19 +42,23 @@
         <input type="text" name="maximum">
         
         <!-- Enter Average number of cookies per order -->
-        <label for="perorder">Average number of cookies per Order</label>
+        <label for="perorder">Avg cookies/Order</label>
         <input type="text" name="perorder">
 
-        <submit>Add Store</submit>
+        <button><submit>Add Store</submit></button>
         
       </fieldset>
     </form>
 
-    
-
-
   </main>
   
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </footer>
   
   
   <script src="constructor.js"></script>
