@@ -6,6 +6,8 @@ console.log('hello, I work');
 TODO: create stand alone function to create table footergive it a class and an id for styling
 
 */
+
+
 function Store(locationName, minGuestCount, maxGuestCount, avgCookiesGuest){
   // creates new store
   this.locationName = locationName;
@@ -151,19 +153,21 @@ Store.prototype.writeRow = function(){
   
 };
 
+
 // ==== seperate functions for 
 // 1. retrieving values in each first child of tr with tag <td> 
     //1.a. iterate and push to array, 
     //1.b. sum array. 
     //1.c. write return of (1.b.) to tableFooterRow[i]
-// 2. interate step above through loop = to tableHeaderRow.length. 
+// 2. iterate step above through loop = to tableHeaderRow.length. 
 
 
 
 
 
 
-//==== Create Store Objects Here ====//
+//==== Create Store Objects Here  in Array ??? ====//
+
 var seattle = new Store('Seattle', 23, 65,6.3);
 var tokyo = new Store('Tokyo', 3, 24, 1.2);
 var dubai = new Store('Dubai', 11, 38, 3.7);
