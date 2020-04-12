@@ -15,8 +15,15 @@ main {
 nav{
   position: relative;
 
-
 }
+
+img {
+  
+}
+
+
+
+/* Table Styling */
 #newStore{
   margin-top: 40px;
 }
@@ -28,3 +35,7 @@ nav{
 #overview th {
   min-width : 30px;
 }
+
+
+
+
