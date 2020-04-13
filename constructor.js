@@ -162,17 +162,30 @@ Store.prototype.writeRow = function(){
 // 2. iterate step above through loop = to tableHeaderRow.length. 
 
 
-
-
-
-
 //==== Create Store Objects Here  in Array ??? ====//
 
+var listStores = [];
+
 var seattle = new Store('Seattle', 23, 65,6.3);
-var tokyo = new Store('Tokyo', 3, 24, 1.2);
-var dubai = new Store('Dubai', 11, 38, 3.7);
-var paris = new Store('Paris', 20, 38, 2.3);
-var lima = new Store('Lima', 2, 16, 4.6);
+// var tokyo = new Store('Tokyo', 3, 24, 1.2);
+// var dubai = new Store('Dubai', 11, 38, 3.7);
+// var paris = new Store('Paris', 20, 38, 2.3);
+// var lima = new Store('Lima', 2, 16, 4.6);
+
+//===== Event Listener ======//
+
+var addStore = document.getElementById('newStore');
+
+addStore.addEventListener(submit,function(addStore){
+  addStore.preventDefault();
+  var param = addStore.target;
+  var storeName = param.location.value;
+  var minGuestCount = param.minimum.value;
+  var maxGuestCount = param.maximum.value;
+  var perOrder = param.perorder.value;
+
+  listStores.push(Store(storeName, minGuestCount, maxGuestCount, perOrder););
+}
 
 
 
