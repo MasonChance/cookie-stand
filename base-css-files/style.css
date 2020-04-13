@@ -1,13 +1,11 @@
 
 * {
-  outline: dotted red;
-box-sizing: border-box;
-overflow: hidden;
-overflow: auto;
-
-
-/* background-color: blanchedalmond;
-color: #000033; */
+  /* outline: dotted red; */
+  box-sizing: border-box;
+  overflow: hidden;
+  /* overflow: auto; */
+  background-color: blanchedalmond;
+  color: #000033;
 }
 
 /* Site-Wide Styling for compositional elements and positioning */
@@ -15,7 +13,9 @@ body{
   max-width: 80%vw;
   margin-left: auto;
   margin-right: auto;
-  color: blanchedalmond;
+  /* color: blanchedalmond; */
+  background-color:rgb(228, 216, 199);
+  color: #000033;
 
 
 }
@@ -25,10 +25,10 @@ header{
   height: 150px;
   margin-right: auto;
   margin-left: auto; 
-  /* background-color: blanchedalmond;
+  background: rgb(228, 216, 199);;
   background-image: url("image-assets/chinook-main-logo.jpg");
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
 }
 
 nav{
@@ -47,6 +47,7 @@ main {
   max-width: 80%;
   margin-right: auto;
   margin-left: auto;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   
 }
 
@@ -70,7 +71,7 @@ section {
 article {
   max-height: 200px;
   scroll-behavior: auto;
-  
+  overflow: auto;
 }
 
 
@@ -118,6 +119,7 @@ footer nav {
 
 /* Table Styling */
 h2 {
+  font-family: girasol;
   font-size: 18pt;
   max-width: fit-content;
   margin-right: auto;
@@ -127,6 +129,9 @@ h2 {
 h3 {
   font-size: 16pt;
   font-weight: bold;
+}
+#overview {
+  font-family: sans-serif;
 }
 
 #overview th {
@@ -143,7 +148,7 @@ h3 {
 #overview  tr {
   height: 30px;
   margin-top: 40px;
-  border-top: 5px solid rebeccapurple;
+  border-top: 5px solid burlywood;
   
   
  
@@ -152,6 +157,7 @@ h3 {
 
 .newStore{
   margin-top: 40px;
+  border: 10px solid burlywood;
  
 }
 
@@ -169,6 +175,7 @@ h3 {
   margin-right: auto;
   font-size: 20px;
   font-weight: bolder;
+  
   
 }
 
